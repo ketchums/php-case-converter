@@ -1,11 +1,6 @@
 {
     "name": "ketchums/php-case-converter",
-    "authors": [
-        {
-            "name": "ketchums",
-            "email": "k3tchum@outlook.com"
-        }
-    ],
+    "license": "MIT",
     "require": {
         "php": ">=7.4"
     },
