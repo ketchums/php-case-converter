@@ -1,0 +1,16 @@
+{
+    "name": "ketchums/php-case-converter",
+    "authors": [
+        {
+            "name": "ketchums",
+            "email": "k3tchum@outlook.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
