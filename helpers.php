@@ -10,8 +10,7 @@ function hasRepeatedUppercaseLetters(string $string) : bool {
             }
 
             $foundUppercaseLast = true;
-        }
-        else {
+        } else {
             $foundUppercaseLast = false;
         }
     }
@@ -19,7 +18,8 @@ function hasRepeatedUppercaseLetters(string $string) : bool {
     return false;
 }
 
-function containsUppercaseCharacters(string $string) : bool {
+function containsUppercaseCharacters(string $string) : bool
+{
     foreach (str_split($string) as $character) {
         if (ctype_upper($character)) {
             return true;
@@ -29,7 +29,8 @@ function containsUppercaseCharacters(string $string) : bool {
     return false;
 }
 
-function containsLowercaseCharacters(string $string) : bool {
+function containsLowercaseCharacters(string $string) : bool
+{
     foreach (str_split($string) as $character) {
         if (ctype_lower($character)) {
             return true;
@@ -39,7 +40,8 @@ function containsLowercaseCharacters(string $string) : bool {
     return false;
 }
 
-function containsCharacterOtherThan(string $string, string $needle) : bool {
+function containsCharacterOtherThan(string $string, string $needle) : bool
+{
     foreach (str_split($string) as $character) {
         if ($character != $needle) {
             return true;

@@ -3,15 +3,18 @@
 namespace App\Encoders;
 
 class CamelCaseEncoder extends AbstractEncoder {
-    public function encodeFromCamel(string $string): string {
+    public function encodeFromCamel(string $string) : string
+    {
         return $this->encodeFromUnknown($string); // self
     }
 
-    public function encodeFromPascal(string $string) : string {
+    public function encodeFromPascal(string $string) : string
+    {
         return strtolower($string[0]) . substr($string, 1);
     }
 
-    public function encodeFromKebab(string $string) : string {
+    public function encodeFromKebab(string $string) : string
+    {
         $rebuiltString = '';
 
         foreach (explode("-", $string) as $key => $piece) {
@@ -22,7 +25,8 @@ class CamelCaseEncoder extends AbstractEncoder {
         return $rebuiltString;
     }
 
-    public function encodeFromSnake(string $string) : string {
+    public function encodeFromSnake(string $string) : string
+    {
         $rebuiltString = '';
 
         foreach (explode("_", $string) as $key => $piece) {
@@ -33,7 +37,8 @@ class CamelCaseEncoder extends AbstractEncoder {
         return $rebuiltString;
     }
 
-    public function encodeFromDot(string $string) : string {
+    public function encodeFromDot(string $string) : string
+    {
         $rebuiltString = '';
 
         foreach (explode(".", $string) as $key => $piece) {
@@ -44,7 +49,8 @@ class CamelCaseEncoder extends AbstractEncoder {
         return $rebuiltString;
     }
 
-    public function encodeFromUnknown(string $string): string {
+    public function encodeFromUnknown(string $string) : string
+    {
         return $string;
     }
 }

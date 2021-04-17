@@ -4,15 +4,18 @@ namespace App\Encoders;
 
 class PascalCaseEncoder extends AbstractEncoder
 {
-    public function encodeFromCamel(string $string) : string {
+    public function encodeFromCamel(string $string) : string
+    {
         return strtoupper($string[0]) . substr($string, 1);
     }
 
-    public function encodeFromPascal(string $string): string {
+    public function encodeFromPascal(string $string): string
+    {
         return $string;
     }
 
-    public function encodeFromKebab(string $string) : string {
+    public function encodeFromKebab(string $string) : string
+    {
         $rebuiltString = '';
 
         foreach (explode("-", $string) as $key => $piece) {
@@ -23,7 +26,8 @@ class PascalCaseEncoder extends AbstractEncoder
         return $rebuiltString;
     }
 
-    public function encodeFromSnake(string $string) : string {
+    public function encodeFromSnake(string $string) : string
+    {
         $rebuiltString = '';
 
         foreach (explode("_", $string) as $key => $piece) {
@@ -34,7 +38,8 @@ class PascalCaseEncoder extends AbstractEncoder
         return $rebuiltString;
     }
 
-    public function encodeFromDot(string $string) : string {
+    public function encodeFromDot(string $string) : string
+    {
         $rebuiltString = '';
 
         foreach (explode(".", $string) as $key => $piece) {
@@ -45,7 +50,8 @@ class PascalCaseEncoder extends AbstractEncoder
         return $rebuiltString;
     }
 
-    public function encodeFromUnknown(string $string): string {
+    public function encodeFromUnknown(string $string): string
+    {
         return $string;
     }
 }
