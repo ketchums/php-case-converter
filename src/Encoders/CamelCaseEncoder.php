@@ -5,7 +5,7 @@ namespace App\Encoders;
 class CamelCaseEncoder extends AbstractEncoder {
     public function encodeFromCamel(string $string) : string
     {
-        return $this->encodeFromUnknown($string); // self
+        return $string;
     }
 
     public function encodeFromPascal(string $string) : string
