@@ -2,19 +2,21 @@
 
 namespace App\Encoders;
 
+use App\CaseType;
+
 abstract class AbstractEncoder implements Encoder {
     public function encode(string $string, int $currentType): string
     {
         switch ($currentType) {
-            case 0:
+            case CaseType::CAMEL:
                 return $this->encodeFromCamel($string);
-            case 1:
+            case CaseType::PASCAL:
                 return $this->encodeFromPascal($string);
-            case 2:
+            case CaseType::KEBAB:
                 return $this->encodeFromKebab($string);
-            case 3:
+            case CaseType::SNAKE:
                 return $this->encodeFromSnake($string);
-            case 4:
+            case CaseType::DOT:
                 return $this->encodeFromDot($string);
             default:
                 return $this->encodeFromUnknown($string);

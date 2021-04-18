@@ -11,21 +11,21 @@ use App\Encoders\DotCaseEncoder;
 
 class CaseConverter
 {
-    use CaseDetection;
-
     private string $string;
-    private int $type = 3949;
+    private int $type = 0;
 
     private array $encoders;
 
-    public function __construct(string $string) {
+    public function __construct(string $string, int $type)
+    {
         $this->string = $string;
-        $this->type = $this->detectCaseType($string);
+        $this->type = $type;
 
         $this->assignEncoders();
     }
 
-    private function assignEncoders() {
+    private function assignEncoders()
+    {
         $this->registerEncoder('camel', new CamelCaseEncoder());
         $this->registerEncoder('pascal', new PascalCaseEncoder());
         $this->registerEncoder('kebab', new KebabCaseEncoder());
@@ -33,17 +33,20 @@ class CaseConverter
         $this->registerEncoder('dot', new DotCaseEncoder());
     }
 
-    private function registerEncoder(string $name, Encoder $encoder) {
+    public function registerEncoder(string $name, Encoder $encoder)
+    {
         $this->encoders[$name] = $encoder;
     }
 
-    private function isAllowedMagicMethod($methodName) {
+    private function isAllowedMagicMethod($methodName)
+    {
         return substr($methodName, 0, 2) === "to" &&
             substr($methodName, strlen($methodName) - 4, 4) === "Case" &&
-            $this->isCamelCase($methodName);
+            strlen($methodName) > 6;
     }
 
-    private function getEncoderNameFromMethodName($methodName) {
+    private function getEncoderNameFromMethodName($methodName)
+    {
         return str_replace(
             'case', '', strtolower(
                 substr($methodName, 2)
@@ -51,14 +54,16 @@ class CaseConverter
         );
     }
 
-    public function __call($name, $arguments) {
+    public function __call($name, $arguments)
+    {
         return $this->isAllowedMagicMethod($name) ? $this->encodeUsingEncoder(
             $this->string,
             $this->getEncoderNameFromMethodName($name)
         ) : null;
     }
 
-    private function encodeUsingEncoder(string $string, string $encoder) : string {
+    private function encodeUsingEncoder(string $string, string $encoder) : string
+    {
         if (!array_key_exists($encoder, $this->encoders)) {
             throw new \Exception("Failed to resolve encoder for '" . $encoder . "'");
         }
