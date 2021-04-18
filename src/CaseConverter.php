@@ -8,21 +8,18 @@ use App\Encoders\PascalCaseEncoder;
 use App\Encoders\KebabCaseEncoder;
 use App\Encoders\SnakeCaseEncoder;
 use App\Encoders\DotCaseEncoder;
-use App\Traits\CaseDetection;
 
 class CaseConverter
 {
-    use CaseDetection;
-
     private string $string;
     private int $type = 0;
 
     private array $encoders;
 
-    public function __construct(string $string)
+    public function __construct(string $string, int $type)
     {
         $this->string = $string;
-        $this->type = $this->detectCaseType($string);
+        $this->type = $type;
 
         $this->assignEncoders();
     }
