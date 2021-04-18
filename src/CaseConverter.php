@@ -8,13 +8,14 @@ use App\Encoders\PascalCaseEncoder;
 use App\Encoders\KebabCaseEncoder;
 use App\Encoders\SnakeCaseEncoder;
 use App\Encoders\DotCaseEncoder;
+use App\Traits\CaseDetection;
 
 class CaseConverter
 {
     use CaseDetection;
 
     private string $string;
-    private int $type = 3949;
+    private int $type = 0;
 
     private array $encoders;
 
