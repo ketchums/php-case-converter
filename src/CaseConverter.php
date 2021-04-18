@@ -42,7 +42,7 @@ class CaseConverter
     {
         return substr($methodName, 0, 2) === "to" &&
             substr($methodName, strlen($methodName) - 4, 4) === "Case" &&
-            $this->isCamelCase($methodName);
+            strlen($methodName) > 6;
     }
 
     private function getEncoderNameFromMethodName($methodName)
