@@ -62,6 +62,10 @@ class CaseConverter
         ) : null;
     }
 
+    public function toCase($caseName) : string {
+        return $this->encodeUsingEncoder($this->string, $caseName);
+    }
+
     private function encodeUsingEncoder(string $string, string $encoder) : string
     {
         if (!array_key_exists($encoder, $this->encoders)) {
