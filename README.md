@@ -33,3 +33,11 @@ $caseConvert = new CaseConverter('some.cool.string');
 echo $caseConvert->toPascalCase(); // someCoolString
 echo $caseConvert->toKebabCase(); // some-cool-string
 ```
+
+Don't like magic methods?
+```
+$caseConvert = new CaseConverter('some.cool.string');
+
+echo $caseConvert->toCase('pascal'); // someCoolString
+echo $caseConvert->toCase('kebab'); // some-cool-string
+```
