@@ -24,9 +24,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for information.
 
 php-case-converter uses a `MAJOR.MINOR.PATCH` version number format.
 
-## Example 1
+## Examples
 
-Code Snippet
+Basic
 ```
 use App\CaseDetector;
 use App\CaseConverter;
@@ -40,15 +40,12 @@ echo $converter->toPascalCase(); // someCoolString
 echo $converter->toKebabCase(); // some-cool-string
 ```
 
-
-## Example 2
 Don't like magic methods?
 ```
 echo $caseConvert->toCase('pascal'); // someCoolString
 echo $caseConvert->toCase('kebab'); // some-cool-string
 ```
 
-## Example 3
 Let the package detect the type for you
 ```
 use App\CaseDetector;
