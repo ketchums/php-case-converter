@@ -63,35 +63,17 @@ class CaseDetection
 
     private function containsCharacterOtherThan(string $string, string $needle) : bool
     {
-        foreach (str_split($string) as $character) {
-            if ($character != $needle) {
-                return true;
-            }
-        }
-
-        return false;
+        return preg_match('/[^' . $needle . ']/', $string);
     }
 
     public function containsLowercaseCharacters(string $string) : bool
     {
-        foreach (str_split($string) as $character) {
-            if (ctype_lower($character)) {
-                return true;
-            }
-        }
-
-        return false;
+        return preg_match('/[a-z]/', $string);
     }
 
     public function containsUppercaseCharacters(string $string) : bool
     {
-        foreach (str_split($string) as $character) {
-            if (ctype_upper($character)) {
-                return true;
-            }
-        }
-
-        return false;
+        return preg_match('/[a-z]/', $string);
     }
 
     public function hasRepeatedUppercaseLetters(string $string) : bool {
