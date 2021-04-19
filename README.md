@@ -24,20 +24,32 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for information.
 
 php-case-converter uses a `MAJOR.MINOR.PATCH` version number format.
 
-## Example
+## Examples
 
-Example 1:
+Basic
 ```
-$caseConvert = new CaseConverter('some.cool.string');
+use App\CaseDetector;
+use App\CaseConverter;
 
-echo $caseConvert->toPascalCase(); // someCoolString
-echo $caseConvert->toKebabCase(); // some-cool-string
+$string = 'some.cool.string';
+
+$detector = new CaseDetector();
+$converter = new CaseConverter($string, $detector->detectType($string));
+
+echo $converter->toPascalCase(); // someCoolString
+echo $converter->toKebabCase(); // some-cool-string
 ```
 
 Don't like magic methods?
 ```
-$caseConvert = new CaseConverter('some.cool.string');
-
 echo $caseConvert->toCase('pascal'); // someCoolString
 echo $caseConvert->toCase('kebab'); // some-cool-string
+```
+
+Let the package detect the type for you
+```
+use App\CaseDetector;
+use App\CaseConverter;
+
+$converter = new CaseConverter($string);
 ```
