@@ -28,7 +28,13 @@ php-case-converter uses a `MAJOR.MINOR.PATCH` version number format.
 
 Example 1:
 ```
-$caseConvert = new CaseConverter('some.cool.string');
+use App\CaseDetector;
+use App\CaseConverter;
+
+$string = 'some.cool.string';
+
+$caseDetector = new CaseDetector();
+$caseConvert = new CaseConverter($string, $caseDetector->detectType($string));
 
 echo $caseConvert->toPascalCase(); // someCoolString
 echo $caseConvert->toKebabCase(); // some-cool-string
@@ -36,8 +42,6 @@ echo $caseConvert->toKebabCase(); // some-cool-string
 
 Don't like magic methods?
 ```
-$caseConvert = new CaseConverter('some.cool.string');
-
 echo $caseConvert->toCase('pascal'); // someCoolString
 echo $caseConvert->toCase('kebab'); // some-cool-string
 ```
