@@ -26,7 +26,7 @@ class CaseConverter
 
     private function detectType(string $string) : int {
         $detector = new CaseDetection();
-        return $detector->detect($string);
+        return $detector->detectType($string);
     }
 
     private function assignEncoders()
