@@ -12,16 +12,21 @@ use App\Encoders\DotCaseEncoder;
 class CaseConverter
 {
     private string $string;
-    private int $type = 0;
+    private int $type;
 
     private array $encoders;
 
-    public function __construct(string $string, int $type)
+    public function __construct(string $string, int $type = 0)
     {
         $this->string = $string;
-        $this->type = $type;
+        $this->type = $type == 0 ? $this->detectType($string) : $type;
 
         $this->assignEncoders();
+    }
+
+    private function detectType(string $string) : int {
+        $detector = new CaseDetection();
+        return $detector->detect($string);
     }
 
     private function assignEncoders()
