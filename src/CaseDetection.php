@@ -4,7 +4,7 @@ namespace App;
 
 class CaseDetection
 {
-    public function detect(string $string) : int
+    public function detectType(string $string) : int
     {
         if ($this->isKebabCase($string)) {
             return CaseType::KEBAB;
