@@ -66,17 +66,17 @@ class CaseDetection
         return preg_match('/[^' . $needle . ']/', $string);
     }
 
-    public function containsLowercaseCharacters(string $string) : bool
+    private function containsLowercaseCharacters(string $string) : bool
     {
         return preg_match('/[a-z]/', $string);
     }
 
-    public function containsUppercaseCharacters(string $string) : bool
+    private function containsUppercaseCharacters(string $string) : bool
     {
         return preg_match('/[a-z]/', $string);
     }
 
-    public function hasRepeatedUppercaseLetters(string $string) : bool {
+    private function hasRepeatedUppercaseLetters(string $string) : bool {
         $foundUppercaseLast = false;
 
         foreach (str_split($string) as $character) {
