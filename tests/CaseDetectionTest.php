@@ -9,11 +9,11 @@ final class CaseDetectionTest extends TestCase
     {
         $caseDetector = new CaseDetection();
 
-        $this->assertTrue($caseDetector->detect('camelCaseTestString') == 0);
-        $this->assertTrue($caseDetector->detect('PascalCaseTestString') == 1);
-        $this->assertTrue($caseDetector->detect('kebab-case-test-string') == 2);
-        $this->assertTrue($caseDetector->detect('snake_case_test_string') == 3);
-        $this->assertTrue($caseDetector->detect('dot.case.test.string') == 4);
-        $this->assertTrue($caseDetector->detect('unknown test string') == 5);
+        $this->assertTrue($caseDetector->detectType('camelCaseTestString') == 0);
+        $this->assertTrue($caseDetector->detectType('PascalCaseTestString') == 1);
+        $this->assertTrue($caseDetector->detectType('kebab-case-test-string') == 2);
+        $this->assertTrue($caseDetector->detectType('snake_case_test_string') == 3);
+        $this->assertTrue($caseDetector->detectType('dot.case.test.string') == 4);
+        $this->assertTrue($caseDetector->detectType('unknown test string') == 5);
     }
 }
